@@ -1,11 +1,325 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:layout_height="match_parent" tools:context=".MainActivity"
+    android:background="@color/headerTools">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="#FFFFFF">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/logo"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+        </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headerLayout">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/greenBar">
+
+
+                <ImageButton
+                    android:id="@+id/toolsIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/toolsicon"
+                    android:layout_margin="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/titleHeader1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/titleHeader"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:layout_alignTop="@+id/toolsIcon"
+                    android:layout_toRightOf="@+id/toolsIcon"
+                    android:layout_toEndOf="@+id/toolsIcon"
+                    android:layout_toStartOf="@+id/historyIcon"
+                    />
+
+
+                <ImageButton
+                    android:id="@+id/historyIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/historyicon"
+                    android:layout_alignTop="@+id/infoIcon"
+                    android:layout_toLeftOf="@+id/infoIcon"
+                    android:layout_toStartOf="@+id/infoIcon"
+                    />
+
+                <ImageButton
+                    android:id="@+id/infoIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/infoicon"
+                    android:layout_margin="5dp"
+                    android:layout_alignParentRight="true"
+                    />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:id="@+id/layoutPeso"
+                >
+
+                <TextView
+                    android:id="@+id/txtWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/weight"
+                    android:textColor="@color/white"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/txtWeightNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/exampleWeight"
+                    android:textColor="@color/white"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@mipmap/boxkg"
+                    android:padding="4dp"
+                    android:layout_margin="10dp"
+                    />
+
+                <SeekBar
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/seekBarWeight"
+                    android:max="140"
+                    android:progress="70"
+                    android:thumb="@mipmap/thumbweight"
+                    android:secondaryProgress="140"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:maxHeight="6dp"
+                    android:minHeight="6dp"
+                    />
+
+
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layoutPeso">
+
+                <TextView
+                    android:id="@+id/txtSexo"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/titleSex"
+                    android:textColor="@color/white"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_alignTop="@+id/imgSeparator"
+                    />
+
+                <ImageView
+                    android:id="@+id/imgSeparator"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@mipmap/lines"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+
+
+                </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/layoutFemenino"
+                    android:layout_margin="5dp">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imgFemenino"
+                        android:background="@mipmap/femwhite"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center_horizontal"
+                        />
+
+                    <TextView
+                        android:id="@+id/txtFemenino"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/titleFemale"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center_horizontal"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/layoutMasculino"
+                    android:layout_toRightOf="@+id/layoutFemenino"
+                    android:layout_margin="5dp">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imgMasculino"
+                        android:background="@mipmap/masculinoline"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center_horizontal"/>
+
+
+                    <TextView
+                        android:id="@+id/txtMasculino"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/titleMale"
+                        android:textColor="@color/gray"
+                        android:layout_below="@+id/imgMasculino"
+                        android:layout_gravity="center_horizontal"/>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/separator"
+                android:background="@mipmap/line"
+                android:layout_marginTop="10dp"/>
+
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerPatologia"
+                android:background="@mipmap/boxpatology"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:popupBackground="@color/greenBar"
+                android:divider="@color/white"
+                />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutTrzert"
+                android:layout_below="@+id/spinnerPatologia"
+                >
+
+                <TextView
+                    android:id="@+id/txtTreizt"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/treiztQuestion"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:background="@color/greenBar"
+                    android:layout_marginTop="10dp"
+                    android:padding="7dp"/>
+
+
+
+
+             </RelativeLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+        </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/greenBar">
+
+        <Button
+            android:id="@+id/btnDeficit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/deficit"
+            android:text="@string/btnDeficit"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+
+            />
+
+        <Button
+            android:id="@+id/btnCalcular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/calcular"
+            android:text="@string/btnCalcular"
+            android:paddingLeft="15dp"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
+
+
+
+
 
 </RelativeLayout>
