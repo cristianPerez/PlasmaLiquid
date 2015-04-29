@@ -15,12 +15,14 @@
 
     <string-array name="patologia">
         <item>PATOLOGIA</item>
-        <item>Quirúrgica</item>
-        <item>Médica</item>
+        <item>QUIRÚRGICA</item>
+        <item>MÉDICA</item>
     </string-array>
 
     <string name="treiztQuestion">Referente anatómico del ligamento de treizt</string>
     <string name="btnCalcular">Calcular</string>
     <string name="btnDeficit">Deficit y perdidas</string>
+    <string name="txtPorEncima">Por encima</string>
+    <string name="txtPorDebajo">Por debajo</string>
 
 </resources>

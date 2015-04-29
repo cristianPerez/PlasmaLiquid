@@ -2,21 +2,23 @@ package co.qualitysolutions.plasmaliquid;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.Scroller;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Arrays;
 
@@ -25,15 +27,16 @@ import co.qualitysolutions.utilities.SpinnerAdapter;
 
 
 public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener,OnClickListener,OnItemSelectedListener {
-    private TextView titleHeader1,txtWeight,txtWeightNumber,txtSexo,txtFemenino,txtMasculino,txtTreizt;
+    private TextView titleHeader1,txtWeight,txtWeightNumber,txtSexo,txtFemenino,txtMasculino,txtTreizt,txtPorEncima,txtPorDebajo;
     private Typeface antipasto;
     private SeekBar seekBarWeight;
-    private ImageButton imgFemenino,imgMasculino;
-    private Drawable dImgFemenino,dImgFemeninoPress,dImgMasculino,dImgMasculinoPress;
+    private ImageButton imgFemenino,imgMasculino,imgEncima,imgDebajo;
+    private Drawable dImgFemenino,dImgFemeninoPress,dImgMasculino,dImgMasculinoPress,dImgEncima,dImgEncimaPress,dImgDebajo,dImgDebajoPress;
     private boolean sexo;
     private Spinner spinnerPatologia;
     private Button btnDeficit,btnCalcular;
     private RelativeLayout layoutTrzert;
+    private String encimadebajo;
 
 
     @Override
@@ -79,6 +82,14 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         this.txtMasculino.setOnClickListener(this);
         this.txtMasculino.setTypeface(this.antipasto);
 
+        this.txtPorEncima=(TextView)findViewById(R.id.txtPorEncima);
+        this.txtPorEncima.setOnClickListener(this);
+        this.txtPorEncima.setTypeface(this.antipasto);
+
+        this.txtPorDebajo=(TextView)findViewById(R.id.txtPorDebajo);
+        this.txtPorDebajo.setOnClickListener(this);
+        this.txtPorDebajo.setTypeface(this.antipasto);
+
         this.imgFemenino = (ImageButton) findViewById(R.id.imgFemenino);
         this.imgFemenino.setOnClickListener(this);
         this.dImgFemenino = this.getResources().getDrawable(R.mipmap.femline);
@@ -89,7 +100,18 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         this.dImgMasculino = this.getResources().getDrawable(R.mipmap.masculinoline);
         this.dImgMasculinoPress = this.getResources().getDrawable(R.mipmap.masculinowhite);
 
+        this.imgEncima= (ImageButton) findViewById(R.id.imgEncima);
+        this.imgEncima.setOnClickListener(this);
+        this.dImgEncima = this.getResources().getDrawable(R.mipmap.encima);
+        this.dImgEncimaPress = this.getResources().getDrawable(R.mipmap.ensimaactivo);
+
+        this.imgDebajo = (ImageButton) findViewById(R.id.imgDebajo);
+        this.imgDebajo.setOnClickListener(this);
+        this.dImgDebajo = this.getResources().getDrawable(R.mipmap.debajo);
+        this.dImgDebajoPress = this.getResources().getDrawable(R.mipmap.debajoactivo);
+
         this.sexo=false;
+        this.encimadebajo="0";
 
         this.spinnerPatologia=(Spinner) findViewById(R.id.spinnerPatologia);
         this.spinnerPatologia.setOnItemSelectedListener(this);
@@ -146,6 +168,9 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onClick(View v) {
+
+        if(v.getId() == R.id.imgFemenino || v.getId() == R.id.imgMasculino){
+
 
         if(v.getId() == R.id.imgFemenino){
 
@@ -221,6 +246,38 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
                 this.txtFemenino.setTextColor(getResources().getColor(R.color.gray));
 
                 this.sexo=true;
+            }
+
+
+        }
+
+        }
+
+        else if(v.getId() == R.id.imgEncima || v.getId() == R.id.imgDebajo  || v.getId() == R.id.txtPorEncima  || v.getId() == R.id.txtPorDebajo){
+
+
+            if(v.getId() == R.id.imgEncima || v.getId() == R.id.txtPorEncima){
+
+                this.imgEncima.setBackground(this.dImgEncimaPress);
+                this.imgEncima.setEnabled(false);
+
+                this.imgDebajo.setBackground(this.dImgDebajo);
+                this.imgDebajo.setEnabled(true);
+
+                this.encimadebajo="1";
+
+
+            }
+            else if(v.getId() == R.id.imgDebajo || v.getId() == R.id.txtPorDebajo) {
+
+                this.imgEncima.setBackground(this.dImgEncima);
+                this.imgEncima.setEnabled(true);
+
+                this.imgDebajo.setBackground(this.dImgDebajoPress);
+                this.imgDebajo.setEnabled(false);
+
+                this.encimadebajo="2";
+
             }
 
 
