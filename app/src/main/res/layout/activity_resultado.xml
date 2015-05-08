@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="co.qualitysolutions.plasmaliquid.Resultado"
+    android:background="@color/headerTools">
+
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="#FFFFFF">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/logo"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/greenBar"
+        android:layout_below="@+id/headerLayout"
+        android:id="@+id/headerLayout1">
+
+
+        <ImageButton
+            android:id="@+id/toolsIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/toolsicon"
+            android:layout_margin="5dp"
+            />
+
+        <TextView
+            android:id="@+id/titleHeader1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/titleHeader"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:layout_alignTop="@+id/toolsIcon"
+            android:layout_toRightOf="@+id/toolsIcon"
+            android:layout_toEndOf="@+id/toolsIcon"
+            android:layout_toStartOf="@+id/historyIcon"
+            />
+
+
+        <ImageButton
+            android:id="@+id/historyIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/historyicon"
+            android:layout_alignTop="@+id/infoIcon"
+            android:layout_toLeftOf="@+id/infoIcon"
+            android:layout_toStartOf="@+id/infoIcon"
+            />
+
+        <ImageButton
+            android:id="@+id/infoIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/infoicon"
+            android:layout_margin="5dp"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headerLayout1"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textView"
+            android:layout_below="@+id/linearLayout"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"
+            android:padding="20dp"/>
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

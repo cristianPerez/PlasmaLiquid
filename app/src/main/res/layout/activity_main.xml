@@ -3,7 +3,6 @@
     android:layout_height="match_parent" tools:context=".MainActivity"
     android:background="@color/headerTools">
 
-
     <RelativeLayout
         android:id="@+id/headerLayout"
         android:layout_width="fill_parent"
@@ -74,7 +73,7 @@
 
 
     <ScrollView
-        android:id="@+id/scrollView"
+        android:id="@+id/scrollViewCenter"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/headerLayout1"
@@ -95,30 +94,41 @@
                 android:id="@+id/layoutPeso"
                 >
 
-                <TextView
-                    android:id="@+id/txtWeight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/weight"
-                    android:textColor="@color/white"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    />
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/txtWeightNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/exampleWeight"
-                    android:textColor="@color/white"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@mipmap/boxkg"
-                    android:padding="4dp"
-                    android:layout_margin="10dp"
-                    />
+                    <TextView
+                        android:id="@+id/txtWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/weight"
+                        android:textColor="@color/white"
+                        android:padding="4dp"
+                        android:layout_margin="10dp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/txtWeightNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/exampleWeight"
+                        android:textColor="@color/white"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@mipmap/boxkg"
+                        android:layout_alignTop="@+id/txtWeight"
+                        android:layout_toRightOf="@+id/txtWeight"
+                        android:layout_toEndOf="@+id/txtWeight"
+                        android:padding="4dp"
+                        />
+
+                    </RelativeLayout>
+
+
 
                 <SeekBar
                     android:layout_width="fill_parent"

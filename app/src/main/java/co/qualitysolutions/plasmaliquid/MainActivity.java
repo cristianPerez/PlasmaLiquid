@@ -2,20 +2,18 @@ package co.qualitysolutions.plasmaliquid;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-import android.widget.Scroller;
+import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -37,6 +35,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
     private Button btnDeficit,btnCalcular;
     private RelativeLayout layoutTrzert;
     private String encimadebajo;
+    private ScrollView scrollViewCenter;
 
 
     @Override
@@ -49,6 +48,8 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
     public void initializeElements(){
 
         this.antipasto = Typeface.createFromAsset(getAssets(), "fonts/AntipastoBold.ttf");
+
+        this.scrollViewCenter = (ScrollView) findViewById(R.id.scrollViewCenter);
 
         this.btnDeficit = (Button) findViewById(R.id.btnDeficit);
         this.btnDeficit.setTypeface(this.antipasto);
@@ -127,31 +128,26 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 
         visibilityTreizt(this.spinnerPatologia.getSelectedItemPosition());
 
-
-
     }
 
     public void visibilityTreizt(int position){
 
         if(position==1){
-
             this.layoutTrzert.setVisibility(View.VISIBLE);
-
+            this.scrollViewCenter.fullScroll(View.FOCUS_UP);
+            this.scrollViewCenter.scrollTo(0, this.scrollViewCenter.getBottom());
+            this.imgDebajo.requestFocus();
+            this.scrollViewCenter.scrollTo(0, scrollViewCenter.getBottom());
         }
-        else{
-
+            else{
             this.layoutTrzert.setVisibility(View.GONE);
-
+            this.scrollViewCenter.fullScroll(View.FOCUS_UP);
         }
-
     }
-
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
         this.txtWeightNumber.setText(String.valueOf(progress)+"kg");
-
     }
 
     @Override
@@ -266,7 +262,6 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 
                 this.encimadebajo="1";
 
-
             }
             else if(v.getId() == R.id.imgDebajo || v.getId() == R.id.txtPorDebajo) {
 
@@ -288,15 +283,14 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
         visibilityTreizt(position);
         //Toast.makeText(this,String.valueOf(position),Toast.LENGTH_LONG).show();
-
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+
+
 
     }
 }

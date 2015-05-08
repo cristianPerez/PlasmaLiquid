@@ -9,6 +9,7 @@
     <color name="black">#000000</color>
     <color name="blackTransparent">#99000000</color>
     <color name="redTitle">#E73657</color>
+    <color name="redTitleDos">#ff5a5f</color>
 
 
     <!-- Botones menu -->

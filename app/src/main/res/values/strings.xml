@@ -24,5 +24,6 @@
     <string name="btnDeficit">Deficit y perdidas</string>
     <string name="txtPorEncima">Por encima</string>
     <string name="txtPorDebajo">Por debajo</string>
+    <string name="title_activity_resultado">Resultado</string>
 
 </resources>
